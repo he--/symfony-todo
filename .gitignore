@@ -33,8 +33,5 @@
 # Composer PHAR
 /composer.phar
 
-#Composer
-*.lock
-
 ### Vagrant ###
 .vagrant/
