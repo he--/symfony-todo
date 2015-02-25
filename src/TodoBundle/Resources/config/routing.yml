@@ -1,0 +1,15 @@
+todo_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: TodoBundle:Default:index }
+
+index:
+    path:     /
+    defaults: { _controller: TodoBundle:Task:index }
+
+new:
+    path:     /new
+    defaults: { _controller: TodoBundle:Task:new }
+
+update:
+    path:     /update
+    defaults: { _controller: TodoBundle:Task:update }
