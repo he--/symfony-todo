@@ -11,5 +11,11 @@ new:
     defaults: { _controller: TodoBundle:Task:new }
 
 update:
-    path:     /update
-    defaults: { _controller: TodoBundle:Task:update }
+    path:     /update/{task}
+    defaults: { _controller: TodoBundle:Task:update , task:null}
+    methods:  [GET, POST]
+
+delete:
+    path:     /{task}
+    defaults: { _controller: TodoBundle:Task:index }
+    methods:  [GET]

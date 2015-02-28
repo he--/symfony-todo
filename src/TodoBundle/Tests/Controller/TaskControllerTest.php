@@ -27,4 +27,35 @@ class TaskControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/update');
     }
 
+    public function testTaskType()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/new');
+
+        $form = $crawler->selectButton('Send')->form();
+
+        $this->assertGreaterThan(0, $crawler->filter('h1')->count());
+
+        $form['TaskType[descricao]'] = 'Teste unite crawler';
+        $crawler = $client->submit($form);
+
+        $this->assertTrue($client->getResponse()->isSuccessful());
+
+    }
+
+    public function testTaskTypeErro()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/new');
+
+        $form = $crawler->selectButton('Send')->form();
+
+        $this->assertGreaterThan(0, $crawler->filter('h1')->count());
+        $crawler = $client->submit($form);
+
+        $this->assertTrue(!$client->getResponse()->isSuccessful());
+
+    }
+
+
 }

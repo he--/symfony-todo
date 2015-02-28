@@ -1,7 +1,26 @@
-{% extends "::base.html.twig" %}
+{% extends '::base.html.twig' %}
 
 {% block title %}TodoBundle:Task:index{% endblock %}
 
 {% block body %}
 <h1>Welcome to the Task:index page</h1>
+
+    <table>
+        <tr>
+            <td>Descricao</td>
+            <td>Status</td>
+            <td>Tarefa</td>
+            <td>delete</td>
+            {# and so on ... #}
+        </tr>
+            {% for task in tasks  %}
+                <tr>
+                    <td>{{ task.descricao}}</td>
+                    <td>{{ task.status.descricaoStatus }}</td>
+                    <td><a href="{{ path("update", {'task': task.id }) }}">update</a></td>
+                    <td><a href="{{ path("index", {'task': task.id }) }}">delete</a></td>
+                    {# and so on ... #}
+                </tr>
+            {% endfor %}
+    </table>
 {% endblock %}

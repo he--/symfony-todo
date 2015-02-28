@@ -1,7 +1,15 @@
-{% extends "::base.html.twig" %}
+{% extends '::base.html.twig' %}
 
 {% block title %}TodoBundle:Task:new{% endblock %}
 
 {% block body %}
 <h1>Welcome to the Task:new page</h1>
+
+
+    {{ form_start(form) }}
+    {{ form_label(form.descricao) }}
+    {{ form_widget(form.descricao) }}
+    {{ form_widget(form.Send) }}
+    {{ form_end(form, {'render_rest': false}) }}
 {% endblock %}
+
